@@ -1,6 +1,6 @@
 {
   "name": "pavel-kozelskiy-project-lvl1-s69",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "hexlet brain-games",
   "main": "./src/bin/brain-games.js",
   "scripts": {
@@ -20,14 +20,15 @@
   },
   "homepage": "https://github.com/Leming1488/project-lvl1-s69#readme",
   "devDependencies": {
-    "babel-cli" : "*",
+    "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*",
-    "readline-sync": "*"
+    "babel-preset-stage-0": "*"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.6"
   }
 }
-
