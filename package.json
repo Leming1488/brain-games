@@ -1,6 +1,6 @@
 {
   "name": "pavel-kozelskiy-project-lvl1-s69",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "hexlet brain-games",
   "main": "./src/bin/brain-games.js",
   "scripts": {
@@ -23,7 +23,8 @@
     "babel-cli" : "*",
     "babel-core": "*",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*"
+    "babel-preset-stage-0": "*",
+    "readline-sync": "*"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
