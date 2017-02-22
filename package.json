@@ -1,6 +1,6 @@
 {
   "name": "pavel-kozelskiy-project-lvl1-s69",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "hexlet brain-games",
   "main": "./src/bin/brain-games.js",
   "scripts": {
