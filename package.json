@@ -1,6 +1,6 @@
 {
   "name": "pavel-kozelskiy-project-lvl1-s69",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "hexlet brain-games",
   "main": "./src/bin/brain-games.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "babel-eslint": "*"
   },
   "bin": {
+    "brain-even": "dist/bin/brain-even.js",
     "brain-games": "dist/bin/brain-games.js"
   },
   "dependencies": {
