@@ -2,15 +2,7 @@ import readlineSync from 'readline-sync';
 
 const GAME_COUNT = 3;
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 100;
-
-export const randomNubmer = (min = MIN_NUMBER, max = MAX_NUMBER) => {
-  const rand = min + (Math.random() * ((max + 1) - min));
-  return Math.floor(rand);
-};
-
-export const welcomeUser = (gameRules = '') => {
+const welcomeUser = (gameRules = '') => {
   console.log(`Welcome to Brain Games!
 ${gameRules}.`);
   console.log('');
@@ -21,18 +13,26 @@ ${gameRules}.`);
   return userName;
 };
 
-export const createQuestion = (userName, question, checkAnswer, counter = GAME_COUNT) => {
-  if (counter === 0) {
-    return console.log(`Congratulation, ${userName}!`);
-  }
+const startGames = (gameRules, question, isCorrectAnswer, correctAnswer) => {
+  const userName = welcomeUser(gameRules);
 
-  console.log(`Question: ${question}`);
-  const userAnswer = readlineSync.question('Your answer: ');
+  const createQuestion = (counter = GAME_COUNT) => {
+    if (counter === 0) {
+      return console.log(`Congratulation, ${userName}!`);
+    }
 
-  if (checkAnswer) {
-    console.log('Correct!');
-    return createQuestion(counter - 1);
-  }
-  return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEvenNumber(nubmer) ? 'yes' : 'no'}'.
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (isCorrectAnswer(userAnswer)) {
+      console.log('Correct!');
+      return createQuestion(counter - 1);
+    }
+    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer(question)}'.
 Let's try again, ${userName}!`);
+  };
+
+  createQuestion();
 };
+
+export default startGames;
