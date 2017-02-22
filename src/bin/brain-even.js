@@ -1,25 +1,12 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
+import { welcomUser, createQuestion } from '..';
 
-const MIN_NUMBER = 1;
-const MAX_NUMBER = 100;
-const GAME_COUNT = 3;
-
-const randomNubmer = (min, max) => {
-  const rand = min + (Math.random() * ((max + 1) - min));
-  return Math.floor(rand);
-};
 
 const isEvenNumber = number => number % 2 === 0;
 
-console.log(`Welcome to Brain Games!
-Answer "yes" if number even otherwise answer "no".`);
-console.log('');
-
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${userName}!`);
-console.log('');
+const userName = welcomUser();
 
 const createQuestion = (counter = 0) => {
   if (counter === GAME_COUNT) {
