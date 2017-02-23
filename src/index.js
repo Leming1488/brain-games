@@ -13,18 +13,18 @@ ${gameRules}.`);
   return userName;
 };
 
-const startGames = (gameRules, question, isCorrectAnswer, correctAnswer) => {
+const startGames = (gameRules, expression, isCorrectAnswer, correctAnswer) => {
   const userName = welcomeUser(gameRules);
 
   const createQuestion = (counter = GAME_COUNT) => {
     if (counter === 0) {
       return console.log(`Congratulation, ${userName}!`);
     }
-
+    const question = expression();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (isCorrectAnswer(userAnswer)) {
+    if (isCorrectAnswer(userAnswer, question)) {
       console.log('Correct!');
       return createQuestion(counter - 1);
     }

@@ -1,2 +1,5 @@
 #!/usr/bin/env node
-import   
+
+import init from '../brain-even-init';
+
+init();
