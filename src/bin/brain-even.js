@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { brainEven } from '..';
+import init from '../brain-even-init';
 
-brainEven();
+init();

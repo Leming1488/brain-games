@@ -1,53 +1,38 @@
 import readlineSync from 'readline-sync';
 
-const askUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello,${userName}!`);
-};
+const GAME_COUNT = 3;
 
-export const brainEven = () => {
-  const MIN_NUMBER = 1;
-  const MAX_NUMBER = 100;
-  const GAME_COUNT = 3;
-
-  const randomNubmer = (min, max) => {
-    const rand = min + (Math.random() * ((max + 1) - min));
-    return Math.floor(rand);
-  };
-
-  const isEvenNumber = number => number % 2 === 0;
-
+const welcomeUser = (gameRules = '') => {
   console.log(`Welcome to Brain Games!
-Answer "yes" if number even otherwise answer "no".`);
+${gameRules}`);
   console.log('');
 
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log('');
+  return userName;
+};
 
-  const createQuestion = (counter = 0) => {
-    if (counter === GAME_COUNT) {
+const startGames = (gameRules, expression, isCorrectAnswer, correctAnswer) => {
+  const userName = welcomeUser(gameRules);
+
+  const createQuestion = (counter = GAME_COUNT) => {
+    if (counter === 0) {
       return console.log(`Congratulation, ${userName}!`);
     }
-
-    const nubmer = randomNubmer(MIN_NUMBER, MAX_NUMBER);
-
-    console.log(`Question: ${nubmer}`);
+    const question = expression();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    const checkAnswer = (userAnswer === 'yes' && isEvenNumber(nubmer)) ||
-            (userAnswer === 'no' && !isEvenNumber(nubmer));
-
-    if (checkAnswer) {
+    if (isCorrectAnswer(userAnswer, question)) {
       console.log('Correct!');
-      return createQuestion(counter + 1);
+      return createQuestion(counter - 1);
     }
-    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEvenNumber(nubmer) ? 'yes' : 'no'}'.
+    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer(question)}'.
 Let's try again, ${userName}!`);
   };
 
   createQuestion();
 };
 
-export default askUser;
+export default startGames;
