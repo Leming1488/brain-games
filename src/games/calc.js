@@ -1,7 +1,7 @@
-import startGame from './';
-import randomNumber from './random-number';
+import startGame from '../.';
+import randomNumber from '../random-number';
 
-const gameRules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 const operands = ['-', '+', '*'];
 const expression = () => {
   const a = randomNumber();
@@ -29,7 +29,7 @@ const isCorrectAnswer = (userAnswer, number) => (userAnswer === `${calculate(num
 const correctAnswer = number => calculate(number);
 
 const init = () => {
-  startGame(gameRules, expression, isCorrectAnswer, correctAnswer);
+  startGame(description, expression, isCorrectAnswer, correctAnswer);
 };
 
 export default init;
