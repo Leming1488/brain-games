@@ -4,7 +4,7 @@ const GAME_COUNT = 3;
 
 const welcomeUser = (gameRules = '') => {
   console.log(`Welcome to Brain Games!
-${gameRules}.`);
+${gameRules}`);
   console.log('');
 
   const userName = readlineSync.question('May I have your name? ');
