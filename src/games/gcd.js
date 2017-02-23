@@ -1,7 +1,7 @@
-import startGame from './';
-import randomNumber from './random-number';
+import startGame from '../.';
+import randomNumber from '../random-number';
 
-const gameRules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 const expression = () => {
   const a = randomNumber();
   const b = randomNumber();
@@ -20,7 +20,7 @@ const isCorrectAnswer = (userAnswer, number) => (userAnswer === `${calculate(num
 const correctAnswer = number => calculate(number);
 
 const init = () => {
-  startGame(gameRules, expression, isCorrectAnswer, correctAnswer);
+  startGame(description, expression, isCorrectAnswer, correctAnswer);
 };
 
 export default init;
