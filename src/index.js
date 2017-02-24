@@ -13,7 +13,7 @@ ${description}`);
   return userName;
 };
 
-const startGames = (description, expression, isCorrectAnswer, correctAnswer) => {
+const startGames = (description, expression, calculate) => {
   const userName = welcomeUser(description);
 
   const createQuestion = (counter = GAME_COUNT) => {
@@ -23,12 +23,13 @@ const startGames = (description, expression, isCorrectAnswer, correctAnswer) => 
     const question = expression();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = `${calculate(question)}`;
 
-    if (isCorrectAnswer(userAnswer, question)) {
+    if (userAnswer === correctAnswer) {
       console.log('Correct!');
       return createQuestion(counter - 1);
     }
-    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer(question)}'.
+    return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
 Let's try again, ${userName}!`);
   };
 
