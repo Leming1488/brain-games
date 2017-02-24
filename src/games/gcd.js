@@ -16,11 +16,8 @@ const calculate = (exp) => {
   return gcd(numberA, numberB);
 };
 
-const isCorrectAnswer = (userAnswer, number) => (userAnswer === `${calculate(number)}`);
-const correctAnswer = number => calculate(number);
-
 const init = () => {
-  startGame(description, expression, isCorrectAnswer, correctAnswer);
+  startGame(description, expression, calculate);
 };
 
 export default init;

@@ -25,11 +25,8 @@ const balance = (number) => {
   return dicrease(numbers);
 };
 
-const isCorrectAnswer = (userAnswer, number) => (userAnswer === `${balance(number)}`);
-const correctAnswer = number => balance(number);
-
 const init = () => {
-  startGame(description, expression, isCorrectAnswer, correctAnswer);
+  startGame(description, expression, balance);
 };
 
 export default init;
