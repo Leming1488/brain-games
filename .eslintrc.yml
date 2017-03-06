@@ -1,4 +1,5 @@
 ---
+# plugins: [flowtype]
 
 extends:
   - 'airbnb-base'

@@ -1,20 +1,21 @@
 {
-  "name": "pavel-kozelskiy-project-lvl1-s69",
+  "name": "Pavel-Kozelskiy",
   "version": "1.0.0",
   "description": "hexlet brain-games",
   "main": "./src/bin/brain-games.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
+    "flow": "flow",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublish": "npm run build",
     "eslint": "eslint src/*/*.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Leming1488/project-lvl1-s69.git"
+    "url": "https://github.com/Leming1488/brain-games.git",
+    "type": "git"
   },
-  "author": "Pavel Kozelskiy",
+  "author": "Pavel-Kozelskiy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Leming1488/project-lvl1-s69/issues"
@@ -23,12 +24,15 @@
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
+    "babel-eslint": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
     "eslint": "*",
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-import": "*",
-    "babel-eslint": "*"
+    "babel-plugin-transform-flow-strip-types": "*",
+    "flow-typed": "*",
+    "flow-bin": "^0.40.0"
   },
   "bin": {
     "brain-progression": "dist/bin/brain-progression.js",

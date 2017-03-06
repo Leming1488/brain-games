@@ -3,7 +3,7 @@
 #
 
 install:
-	sudo npm install
+	sudo yarn
 
 start:
 	npm run babel-node -- 'src/bin/brain-games.js'
@@ -13,3 +13,6 @@ publish:
 
 lint:
 	npm run eslint
+
+check-types:
+	npm run flow
